@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact list</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/contact.css' %}">
+</head>
+<body>
+<div class="heading">
+            <h2>Lista de <span>Serviços</span></h2>
+        </div>
+<br>
+<br>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Carro</th>
+        <th>Serviço</th>
+        <th>Telefone</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.carro }}</td>
+            <td>{{ contact.servico }}</td>
+            <td>{{ contact.telefone}}</td>
+        <td>
+            <a href="{% url 'contact_update' contact.pk %}">Editar</a>
+            <a href="{% url 'contact_delete' contact.pk %}">Confirmar Serviço</a>
+        </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+<br><br>
+<center>
+    <div>
+    <a class="a" href="{% url 'contact_create' %}">Cadastrar Serviço</a>
+    <a class="a" href="{% url 'landing' %}">Voltar</a>
+</div>
+</center>
+
+
+</body>
+</html>
