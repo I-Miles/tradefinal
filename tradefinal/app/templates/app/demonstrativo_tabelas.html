@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Definindo o conjunto de caracteres UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuração para responsividade -->
+    <title>Demonstrativo das Tabelas</title> <!-- Título da página -->
+    {% load static %} <!-- Carrega arquivos estáticos (como CSS) usando Django template tags -->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/tabelas.css' %}"> <!-- Link para o arquivo CSS -->
+</head>
+<body>
+<div class="container">
+    <h1>Demonstrativo das Tabelas</h1> <!-- Título principal da página -->
+
+    <div class="tables-wrapper"> <!-- Wrapper para as seções das tabelas -->
+
+        <!-- Seção de Tabela de Clientes -->
+        <div class="table-section">
+            <h2>Clientes</h2> <!-- Título da tabela de clientes -->
+            <ul>
+                {% for cliente in clientes %} <!-- Loop sobre a lista de clientes -->
+                <li><strong>{{ cliente.nomecli }}</strong> - {{ cliente.codcli }}</li> <!-- Exibição de cada cliente -->
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Seção de Tabela de Fornecedores -->
+        <div class="table-section">
+            <h2>Fornecedores</h2> <!-- Título da tabela de fornecedores -->
+            <ul>
+                {% for fornecedor in fornecedores %} <!-- Loop sobre a lista de fornecedores -->
+                <li><strong>{{ fornecedor.nomeforn }}</strong> - {{ fornecedor.codiforn }}</li> <!-- Exibição de cada fornecedor -->
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Seção de Tabela de Produtos -->
+        <div class="table-section">
+            <h2>Produtos</h2> <!-- Título da tabela de produtos -->
+            <ul>
+                {% for produto in produtos %} <!-- Loop sobre a lista de produtos -->
+                <li><strong>{{ produto.descprod }}</strong> - {{ produto.codiprod }}</li> <!-- Exibição de cada produto -->
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Seção de Tabela de Vendas -->
+        <div class="table-section">
+            <h2>Vendas</h2> <!-- Título da tabela de vendas -->
+            <ul>
+                {% for venda in vendas %} <!-- Loop sobre a lista de vendas -->
+                <li><strong>Venda {{ venda.codivend }}</strong> - R$ {{ venda.valorvend }}</li> <!-- Exibição de cada venda -->
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <a href="{% url 'landing' %}" class="bottom-link">Voltar para Home</a> <!-- Link para a página inicial -->
+
+</div>
+</body>
+</html>

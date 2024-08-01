@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'app/login.css' %}">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.mon.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+<h2>Login</h2>
+
+<form method="post" class="form-group">
+{% csrf_token %}
+{{ form.as_p }}
+<button href="{% url 'landing' %}"type="submit" class="btn btn-prismary">Login</button>
+<span style="font-size: 15px;">Não tem conta?</span> <a href="{% url 'register' %}" style="text-decoration: none;">Registrar</a>
+</form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivy.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
