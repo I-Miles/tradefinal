@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstrativo das Tabelas</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/tabelas.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>Demonstrativo das Tabelas</h1>
+
+    <div class="tables-wrapper">
+        <div class="table-section">
+            <h2>Clientes</h2>
+            <ul>
+                {% for cliente in clientes %}
+                <li><strong>{{ cliente.nomecli }}</strong> - {{ cliente.codcli }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="table-section">
+            <h2>Fornecedores</h2>
+            <ul>
+                {% for fornecedor in fornecedores %}
+                <li><strong>{{ fornecedor.nomeforn }}</strong> - {{ fornecedor.codiforn }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="table-section">
+            <h2>Produtos</h2>
+            <ul>
+                {% for produto in produtos %}
+                <li><strong>{{ produto.descprod }}</strong> - {{ produto.codiprod }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="table-section">
+            <h2>Vendas</h2>
+            <ul>
+                {% for venda in vendas %}
+                <li><strong>Venda {{ venda.codivend }}</strong> - R$ {{ venda.valorvend }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <a href="{% url 'landing' %}" class="bottom-link">Voltar para Home</a>
+
+</div>
+</body>
+</html>
